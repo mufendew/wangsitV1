@@ -1,0 +1,68 @@
+body {
+	background: url(https://www.toptal.com/designers/subtlepatterns/patterns/scribble_light.png);
+}
+.masthead.segment {
+	min-height: 700px;
+	padding: 1em 0em;
+}
+.masthead h2 {
+	font-size: 1.7em;
+	font-weight: normal;
+}
+.masthead h2.header-control {
+	margin-top : 5em;
+	font-size: 1.7em;
+	font-weight: normal;
+	margin-bottom: 0px;
+}
+.masthead h1.ui.header {
+	margin-top: 0em;
+	margin-bottom: 0em;
+	font-size: 4em;
+	font-weight: normal;
+}
+.ui.inverted.segment, .ui.primary.inverted.segment {
+	background: url("../media/general/back.jpg");
+	color: rgba(255,255,255,.9);
+	background-size:cover;
+
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.break {
+	margin-top: 5em;
+}
+.ui.lime {
+	background-color: #88d317;
+	color: white;
+}
+.ui.plum {
+	background-color: #1a0315;
+	color: white;
+}
+.ui.violet {
+	color: #6e3667;
+}
+.ui.violet.header {
+	color: #6e3667!important;
+}
+.ui.violet.button {
+	background-color: #6e3667;
+	color: white;
+}
+.parallaxx {
+	/* The image used */
+	background-image: url("../media/general/back.jpg");
+
+	/* Set a specific height */
+	min-height: 500px; 
+
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
