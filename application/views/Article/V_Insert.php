@@ -36,8 +36,8 @@
 								<div class="input-field col s12">
 									<select name="katagori">
 									  <option value="Default" disabled >Choose your option</option>
-									  <option value="General" selected>General</option>
-									  <option value="Personal">Personal</option>
+									  <option value="General" selected >General</option>
+									  <option value="Review">Review</option>
 									  <option value="Akademik">Akademik</option>
 									</select>
 									<label>Katagori</label>
@@ -59,6 +59,7 @@
 									      Private
 									    </label>
 									  </div>
+									  <p class="grey-text" style="font-size: 12px;">private hanya tampil didalam halaman anda, tidak akan tampil di halaman article</p>
 							  	</div>
 							</div>
 						</div>

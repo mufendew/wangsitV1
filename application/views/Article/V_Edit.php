@@ -30,34 +30,33 @@
 										<label class="active" for="disabled">Judul</label>
 									</div>
 
-									<div class="input-field col s12">
-										<select name="katagori">
-											<option value="Default" disabled >Choose your option</option>
-											<option value="General" selected>General</option>
-											<option value="Personal">Personal</option>
-											<option value="Akademik">Akademik</option>
-										</select>
-										<label>Katagori</label>
-									</div>
-									<div class="input-field col s12">
-										<textarea name="desc" placeholder="Deskripsi yang akan di tampilkan di list article" id="textarea2" class="materialize-textarea" data-length="255" value=""><?php echo $DESC;?></textarea>
-										<label for="textarea2">Description</label>
-									</div>
-									<div class="col s12">
-										<label>Sharing Option :</label>	
-									</div>
-
-									<div class="input-field col s12">
-										<div class="switch">
-											<label>
-												Public
-												<input name="opsi" type="checkbox" value="PRVT" <?php echo $SHAREABLE;?>>
-												<span class="lever"></span>
-												Private
-											</label>
-										</div>
-									</div>
-								</div>
+								<div class="input-field col s12">
+									<select name="katagori">
+									  <option value="Default" disabled >Choose your option</option>
+									  <option value="General" <?php echo ($b=="General" ? "selected" : ""); ?>>General</option>
+									  <option value="Review" <?php echo ($b=="Review" ? "selected" : ""); ?>>Review</option>
+									  <option value="Akademik" <?php echo ($b=="Akademik" ? "selected" : ""); ?>>Akademik</option>
+									</select>
+									<label>Katagori</label>
+							  	</div>
+							  	<div class="input-field col s12">
+					            	<textarea name="desc" placeholder="Deskripsi yang akan di tampilkan di list article" id="textarea2" class="materialize-textarea" data-length="255" value=""><?php echo $DESC;?></textarea>
+					            	<label for="textarea2">Description</label>
+					          	</div>
+							  	<div class="col s12">
+							  		<label>Sharing Option :</label>	
+							  	</div>
+							  	
+							  	<div class="input-field col s12">
+							  		  <div class="switch">
+									    <label>
+									      Public
+									      <input name="opsi" type="checkbox" value="PRVT" <?php echo $SHAREABLE;?>>
+									      <span class="lever"></span>
+									      Private
+									    </label>
+									  </div>
+							  	</div>
 							</div>
 						</div>
 					</div>

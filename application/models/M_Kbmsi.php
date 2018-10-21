@@ -34,6 +34,11 @@ class M_Kbmsi extends CI_Model {
 		$query = $this->db->query("SELECT ID FROM mhs_kbmsi where USERNAME = '$username'");
 		return $query->row()->ID;
 	}
+		public function getStatus($username)
+	{
+		$query = $this->db->query("SELECT STATUS FROM mhs_kbmsi where USERNAME = '$username'");
+		return $query->row()->STATUS;
+	}
 	public function getArticleUser($jumlah, $offset, $username)
 	{
 		$query = $this->db->query("SELECT JUDUL, TANGGAL, USERNAME, DESKRIPSI, SLUG FROM article_article JOIN mhs_kbmsi on PENULIS = ID where USERNAME = '$username' LIMIT $jumlah OFFSET $offset ");

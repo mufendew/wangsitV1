@@ -32,7 +32,11 @@
 	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 l8">
+				<?php if (!isset($_SESSION['DataProfile']) || $_SESSION['DataProfile'] ==null ){ ?>
+				<div class="col s12 l12">
+				<?php } else { ?>
+				<div class="col s12 l8">	
+				<?php } ?>
 					<div class="card">
 						<ul class="tabs tabs-fixed-width wangsit-color white-text z-depth-1 scrollbar-ngilang">
 							<li class="tab col s3 "><a class="<?php echo ($b==0 ? "active" : ""); ?>" target="_self" href="<?php echo base_url();?>article/"><b>Semua</b></a></li>
@@ -72,7 +76,13 @@
 					<?php } ?>
 					<?php echo $pagination;?>
 				</div>
+				<?php if (isset($_SESSION['DataProfile'])){ ?>
+					
+				
 				<div class="col l4 s12 hide-on-med-and-down">
+					<div class="card">
+					<a href="<?php echo base_url()."Article/My/post"; ?>" class="btn btn-large" style="width: 100%;"><i class="material-icons right">add</i>Add Article</a>
+					</div>
 					<div class="card">
 						<div class="card-image" style="z-index: 0">
 							<img src="<?php echo base_url();?>asset/img/bg-bawah.jpg" style="height: 120px;" alt="">
@@ -114,6 +124,7 @@
 						</div>
 					</div>
 				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
