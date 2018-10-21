@@ -35,7 +35,7 @@ class M_Article extends CI_Model {
 	}
 	public function Read_Article_Single($slug,$username)
 	{
-		$query = $this->db->query("SELECT JUDUL, TANGGAL, CONTENT, USERNAME, DESKRIPSI, GAMBAR, NAMA, SHAREABLE  FROM article_article JOIN mhs_kbmsi on PENULIS = ID where SLUG='$slug' AND USERNAME = '$username'");
+		$query = $this->db->query("SELECT JUDUL, TANGGAL, CONTENT, USERNAME, DESKRIPSI, GAMBAR, NAMA, KATEGORI, SHAREABLE  FROM article_article JOIN mhs_kbmsi on PENULIS = ID where SLUG='$slug' AND USERNAME = '$username'");
 		return $query->row();
 	}
 	public function Delete_Article($slug)

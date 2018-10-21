@@ -23,6 +23,17 @@ class Profile extends CI_Controller {
 			if ($a==null) {
 				$arraay = null;
 			}
+			if ($this->M_Kbmsi->getStatus($_SESSION['DataProfile']['USERNAME'])==0) {
+				$data['belumAktivasi'] = '<div class="col s12" style="margin-top: 25px;">
+			        <div class="chip red white-text" style="width: 100%; border-radius: 5px;">
+			        	Akun anda belum teraktivasi, silakan menguhubungi staff P2S untuk melakukan aktivasi 
+			          <i class="close material-icons">close</i>
+			        </div>
+			    </div>';
+			}else {
+				$data['belumAktivasi'] = null;
+			}
+			
 			$data['information'] = $arraay;
 			$data['userdataa'] = $this->session->userdata();
 			$data['sbds'] = $this->M_Kbmsi->getBDayData();
@@ -30,7 +41,7 @@ class Profile extends CI_Controller {
 		}
 		else
 		{
-			redirect('');
+			redirect($_SERVER['HTTP_REFERER']);
 		}		
 	}
 	public function Profil_Orang()

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  	<title>KBMSI AUTH</title>
+  	<title>Dashboard</title>
 
   	<link rel="stylesheet" href="<?php echo base_url();?>asset/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>asset/css/owl.theme.default.css">
@@ -18,6 +18,7 @@
 <div class="container">
 	<div class="section">
 		<div class="row">
+			<?php echo $belumAktivasi; ?>
 			<div class="col l8 s12">
 				<div class="card">
 					<div class="card-content wangsit-color white-text" style="padding: 10px 30px 10px 15px;;">
@@ -25,11 +26,9 @@
 				 	</div>
 					<div class="card-action">
 						<div class="owl-carousel owl-theme">
-						  <div class="item"><a href="ahjdgjsa" style="margin: 0px;"><img src="<?php echo base_url();?>asset/img/pinjam-ruang.jpg" style="width: 100%; border-radius: 10px;"></a></div>
-						  <div class="item"><img src="<?php echo base_url();?>asset/img/pinjam-ruang.jpg" style="width: 100%;"></div>
-						  <div class="item"><img src="<?php echo base_url();?>asset/img/pinjam-ruang.jpg" style="width: 100%;"></div>
-						  <div class="item"><img src="<?php echo base_url();?>asset/img/pinjam-ruang.jpg" style="width: 100%;"></div>
-						  <div class="item"><img src="<?php echo base_url();?>asset/img/pinjam-ruang.jpg" style="width: 100%;"></div>
+						  <div class="item"><a href="https://ecomplaint.kbmsi.or.id/" target="_BLANK" style="margin: 0px;"><img src="<?php echo base_url();?>asset/img/pinjam-ruang.jpg" style="width: 100%; border-radius: 10px;"></a></div>
+						  <div class="item"><a href="http://kbmsi.filkom.ub.ac.id" target="_BLANK" style="margin: 0px;"><img src="<?php echo base_url();?>asset/img/pinjam-ruangg.jpg" style="width: 100%; border-radius: 10px;"></a></div>
+						  <div class="item"><a href="https://line.me/R/ti/p/%40hvu9898p" target="_BLANK" style="margin: 0px;"><img src="<?php echo base_url();?>asset/img/pinjam-ruanggg.jpg" style="width: 100%; border-radius: 10px;"></a></div>
 						</div>
 					</div>
 				</div>

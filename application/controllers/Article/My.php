@@ -5,8 +5,11 @@ class My extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('M_Kbmsi');
 		if($this->session->userdata('login')==false){
 			redirect('');
+		} elseif ($this->M_Kbmsi->getStatus($_SESSION['DataProfile']['USERNAME'])==0) {
+			redirect($_SERVER['HTTP_REFERER']);
 		}
 		$this->load->model('M_Article');
 	}

@@ -3,13 +3,8 @@
 <head>
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   	<title>KBMSI AUTH</title>
-
-  	<!-- CSS  -->
-  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,800i,700" rel="stylesheet">
-	<link href="asset/css/materialize.min.css" rel="stylesheet" type="text/css">
-	<link href="asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="asset/css/style.css" rel="stylesheet" type="text/css">  
+	<?php $this->load->view('Fragment/Styling'); ?> 
+	<link href="asset/css/materialize.min.css" rel="stylesheet" type="text/css"> 
 </head>
 
 <body>              
@@ -19,12 +14,12 @@
 		<div class="section">
 			<div class="row">
 				<div class="col s12 center-align" style="margin-bottom: 50px;">
-					<h4 class="fontt" style="vertical-align: middle"><b><img class="center-align" src="asset/img/logoo.png" style="width: 50px; vertical-align: middle" alt=""> Wangsit</b></h4>
+					<h4 class="fontt" style="vertical-align: middle"><b><img class="center-align" src="asset/img/logooo.png" style="width: 200px; vertical-align: middle" alt=""></b></h4>
 				</div>
 				
 				<div class="col m6 hide-on-small-and-down">
-					<img class="center-block" src="asset/img/logo.png" style="width: 80%;" alt="">
-					<h5 class="fontt"><b>Wangsit Profile</b></h5>
+					<img class="center-block" src="asset/img/ilustrasi.png" style="width: 100%;" alt="">
+					<h5 class="fontt"><b>Wangsit Auth</b></h5>
 					<p class="">Adalah sebuah sistem autentikasi mahasiswa sistem informasi universitas brawijaya, yang dapat digunakan oleh beberapa aplikasi-aplikasi lain yang ada di KBMSI</p>
 				</div>
 				

@@ -65,8 +65,8 @@
 
 		<a href="<?php echo base_url(); ?>" class="brand-logo fontt"><img class="center-align" src="<?php echo base_url();?>asset/img/logooo.png" style="width: 140px; margin-top: 7px;" alt=""></a>
 		<ul class="right hide-on-med-and-down" style="margin-right: -100px;">
-			<li><a href="<?php echo base_url();?>/academy"><b><i class="material-icons left">school</i>Academy</b></a></li>
-			<li><a href="<?php echo base_url();?>/article"><b><i class="material-icons left">book</i>Article</b></a></li>
+			<li><a href="<?php echo base_url();?>academy"><b><i class="material-icons left">school</i>Academy</b></a></li>
+			<li><a href="<?php echo base_url();?>article"><b><i class="material-icons left">book</i>Article</b></a></li>
 			<?php if (isset($_SESSION['DataProfile'])) { ?>
 			
 			<li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><img class="circle" src="<?php echo $_SESSION['DataProfile']['GAMBAR'] ?>" style="width: 40px; vertical-align:middle; margin-right: 10px; margin-top: -5px" alt=""><b><?php echo ucfirst($_SESSION['DataProfile']['USERNAME']); ?></b><i class="material-icons right" style="margin-left: 10px;">arrow_drop_down</i></a></li>

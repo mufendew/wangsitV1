@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  	<title>WANGSIT</title>
+  	<title>Profile</title>
   	
   	<link rel="stylesheet" href="<?php echo base_url();?>asset/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>asset/css/owl.theme.default.css">
@@ -83,7 +83,7 @@
 			<li><a class="white-text" href="<?php echo base_url();?>/academy"><b><i class="material-icons left">school</i>Academy</b></a></li>
 			<li><a class="white-text" href="<?php echo base_url();?>/article"><b><i class="material-icons left">book</i>Article</b></a></li>
 			<?php if (isset($_SESSION['DataProfile'])) { ?>
-			<li><a class="dropdown-trigger" href="#!" data-target="dropdown3"><img class="circle" src="<?php echo $_SESSION['DataProfile']['GAMBAR'] ?>" style="width: 40px; vertical-align:middle; margin-right: 10px; margin-top: -5px" alt=""><b><?php echo ucfirst($_SESSION['DataProfile']['USERNAME']); ?></b><i class="material-icons right" style="margin-left: 10px;">arrow_drop_down</i></a></li>
+			<li><a class="dropdown-trigger white-text" href="#!" data-target="dropdown3"><img class="circle" src="<?php echo $_SESSION['DataProfile']['GAMBAR'] ?>" style="width: 40px; vertical-align:middle; margin-right: 10px; margin-top: -5px" alt=""><b><?php echo ucfirst($_SESSION['DataProfile']['USERNAME']); ?></b><i class="material-icons right" style="margin-left: 10px;">arrow_drop_down</i></a></li>
 			<?php } else { ?>
 				<li><a class="btn btn-small" href="<?php echo base_url();?>/login">Login</a></li>
 			<?php } ?>

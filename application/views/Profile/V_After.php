@@ -4,37 +4,14 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   	<title>KBMSI AUTH</title>
 
-  	<!-- CSS  -->
-  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,800i,700" rel="stylesheet">
-	<link href="<?php echo base_url();?>asset/css/materialize.css" rel="stylesheet" type="text/css">
-	<link href="<?php echo base_url();?>asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="<?php echo base_url();?>asset/css/style.css" rel="stylesheet" type="text/css">  
+    <?php $this->load->view('Fragment/Styling'); ?>  
 </head>
 
-<!-- dropdown untuk navbar logout -->
-<div id="dropdown1" class="dropdown-content" style="color: black;">
-  <div class="row">
-    <div class="col l2">
-      <img src="avatar.jpg" alt="" class="circle" width="50px" style="margin-top: 10px ">
-    </div>
-    <div class="col l5" style="margin-left: 20px">
-      <p>Naufal Andika
-        <br> andikaa.naufal@gmail.com</p>
-    </div>
-  </div>
-  <div class="divider"></div>
-  <div>
-    <a class="waves-effect waves-light btn" style="margin: 25px">logout</a>
-  </div>
-</div>
-<!-- dropdown untuk navbar logout -->
 <!-- Dropdown Test -->
-  <ul id='dropdown2' class='dropdown-content'>
+  <ul id="dropdown2" class="dropdown-content">
     <li><a href="<?php echo base_url();?>Propil/Googlee/logout" class="wangsit-text"><i class="material-icons">exit_to_app</i>Log Out</a></li>
   </ul>
 <!-- Dropdown Test -->
-
 
 <div class="navbar-fixed">
 	<nav class="z-depth-1 white">
@@ -163,7 +140,7 @@
   <script type="text/javascript">
       $('.datepicker').datepicker({
         showClearBtn : true,
-        format: 'dd-mm-yyyy',
+        format: 'yyyy-mm-dd',
         defaultDate : new Date("1998-05-05"),
         yearRange : [1980,2005]
       });

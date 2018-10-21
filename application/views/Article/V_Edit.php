@@ -34,9 +34,9 @@
 								<div class="input-field col s12">
 									<select name="katagori">
 									  <option value="Default" disabled >Choose your option</option>
-									  <option value="General" selected>General</option>
-									  <option value="Personal">Personal</option>
-									  <option value="Akademik">Akademik</option>
+									  <option value="General" <?php echo ($b=="General" ? "selected" : ""); ?>>General</option>
+									  <option value="Review" <?php echo ($b=="Review" ? "selected" : ""); ?>>Review</option>
+									  <option value="Akademik" <?php echo ($b=="Akademik" ? "selected" : ""); ?>>Akademik</option>
 									</select>
 									<label>Katagori</label>
 							  	</div>

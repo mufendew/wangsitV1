@@ -43,7 +43,6 @@ class Googlee extends CI_Controller{
 		if(isset($_GET['code']))
 		{
 			$this->googleplus->getAuthenticate(); //fungsi dari library google
-			$this->session->set_userdata('login',true);
 
 			//fungsi library Google yakni return all info dari email
 			$idGoogle = $this->googleplus->getUserInfo()['id'];
@@ -56,6 +55,7 @@ class Googlee extends CI_Controller{
 			}
 			else {
 				$dataNIM = $this->M_Login->getNimDKK($idGoogle);
+				$this->session->set_userdata('login',true);
 				$this->session->set_userdata('DataProfile',$dataNIM);
 				redirect('dashboard');
 
@@ -71,7 +71,7 @@ class Googlee extends CI_Controller{
 	public function Daftar()
 	{
 
-		if($this->session->userdata('login') == true){
+		if(isset($_SESSION['DataGoogle'])){
 
 			//proses insert ke DB jika dia pertama kali login atau daftar
 			if (isset($_POST['nimm'])) {
