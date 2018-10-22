@@ -29,16 +29,37 @@
 								<div class="right hide-on-small-only" style="margin-top: 20px;"><?php echo date_format(date_create($detail->TANGGAL),"d F Y");?></div>
 							</div>
 						</div>
-						<div class="card-content" style="padding-bottom: 10px; padding-top: 10px; margin-top: 30px;">
+						<div class="card-content" style="padding-bottom: 30px; padding-top: 10px; margin-top: 30px;">
 
 							<div class="card-title fontt"><b><?php echo $detail->JUDUL;?></b></div>
 							<div class="hide-on-med-and-up"><?php echo date_format(date_create($detail->TANGGAL),"d F Y");?></div>
 							<br>
 							<?php echo $detail->CONTENT;?>
 							<br>
-							<?php echo $edit; ?>
+							
 						</div>
 
+					</div>
+					<h5 class="center fontt wangsit-text"><b>Reply</b></h5>
+					<div class="card">
+						<div class="card-content " style="padding-bottom: 5px;">
+							<div class="row">
+								<div class="col s3 m1 hide-on-small-only">
+									<center>
+									<img class="circle" src="<?php echo $detail->GAMBAR;?>" style="width: 50px; margin-right: 10px; vertical-align: middle; position: relative; display: inline-block;" alt="">
+									</center>
+								</div>
+								<div class="col s12 m11">
+									<div class="input-field col s12">
+							            <textarea id="textarea2" class="materialize-textarea" placeholder=""></textarea>
+							            <label for="textarea2">Your comment</label>
+							        </div>
+								</div>
+								<div class="col s12">
+									<button type="submit" name="btn_login" class="btn btn-small waves-effect right"><i class="material-icons right">send</i>Submit</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="col l3 s12">
@@ -46,6 +67,7 @@
 					<div class="card">
 					<a href="" class="btn btn-large purple" style="width: 100%;">Beranda</a>
 					</div> -->
+					<?php echo $edit; ?>
 					<div class="card">
 						<div class="collection">
 							<div class="collection-item wangsit-color white-text" style="padding: 10px 30px 10px 15px;">

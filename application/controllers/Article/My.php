@@ -79,7 +79,7 @@ class My extends CI_Controller {
 
 /* 
 isi controller :
-- isinya berupa timeline sendiri sesuai akun
+- syarat masuk ke controoler ini harus dah login sama status nya udah terverifikasi
 - CRUD article pribadi
 
 NOTES FOR NEXT PERIODE WKWKWKWK DI DEVELOP OLEH 
