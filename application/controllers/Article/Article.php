@@ -48,7 +48,8 @@ class Article extends CI_Controller {
 		$data['detail'] = $this->M_Article->Read_Article_Single($slug,$username);
 		
 		$data['recent'] = $this->M_Article->GetRecent();
-		if ($this->M_Article->GetCommentByArticle($slug)!==null) {
+
+		if ($this->M_Article->GetCommentByArticle($slug)!=null) {
 			$data['detailcomment'] = $this->M_Article->GetCommentByArticle($slug);
 		}else{
 			$data['detailcomment']=null;
