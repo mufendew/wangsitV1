@@ -31,7 +31,7 @@ class My extends CI_Controller {
 			$username = $_SESSION['DataProfile']['USERNAME'];
 			
 			$slug = $this->M_Article->Insert_Article($judul, $katagori, $opsi, $artikel, $desc);
-		    redirect($username.'/'.$slug ,'refresh');
+			redirect($username.'/'.$slug ,'refresh');
 
 		}
 		else{
@@ -71,9 +71,31 @@ class My extends CI_Controller {
 			$desc = $this->input->post('desc');
 			
 			$this->M_Article->Edit_Article($slug, $katagori, $opsi, $artikel, $desc);
-		    redirect($_SESSION['DataProfile']['USERNAME'].'/'.$slug ,'refresh');
+			redirect($_SESSION['DataProfile']['USERNAME'].'/'.$slug ,'refresh');
 
 		}
+	}
+
+	public function insertComment(){
+		$username = $this->uri->segment(4);
+		$slug = $this->uri->segment(5);
+		if (isset($_POST["tanggapi"])) {
+			$articleid = $this->input->post('articleID');
+			$comment = $this->input->post('komen-artikel');
+			$userid = $this->session->userdata('DataProfile')['ID'];
+			$tgl = date("Y-m-d H:i:s");
+
+			$this->M_Article->InsertComment($articleid,$userid,$comment,$tgl);
+			redirect($username.'/'.$slug ,'refresh');
+		}
+	}
+
+	public function deleteComment(){
+		$username = $this->uri->segment(4);
+		$slug = $this->uri->segment(5);
+		$commentid = $this->uri->segment(6);
+		$this->M_Article->DeleteComment($commentid);
+		redirect($username.'/'.$slug ,'refresh');
 	}
 }
 

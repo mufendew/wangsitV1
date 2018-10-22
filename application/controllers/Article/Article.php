@@ -39,14 +39,18 @@ class Article extends CI_Controller {
 		$data['allArticle']= $this->M_Article->GetArticleAll($config['per_page'],$index);
 		$this->load->view('Article/V_Index',$data);
 	}
+
 	public function Detail()
 	{
 		$username = $this->uri->segment(1);
 		$slug = $this->uri->segment(2);
+		$data['vslug'] = $slug;
 		$data['detail'] = $this->M_Article->Read_Article_Single($slug,$username);
 		
 		$data['recent'] = $this->M_Article->GetRecent();
 		
+		$data['detailcomment'] = $this->M_Article->GetCommentByArticle($slug);
+
 		//kondisi kalo belom login, kalo ganti kode ini, yang di view juga di perhatikan, karena banyak variable session di VIEW nya
 		if (!isset($_SESSION['DataProfile'])) {
 			$_SESSION['DataProfile'] = null;
@@ -59,6 +63,17 @@ class Article extends CI_Controller {
 			$data['edit']= null;
 		}
 
+		// can komen if username exist
+		if (isset($_SESSION['DataProfile'])) {
+			$data['komen'] = '
+			<textarea name="komen-artikel" id="summernote"></textarea>
+			<div class="card">
+			<button name="tanggapi" class="btn wangsit-color" style="width: 100%;">Beri Tanggapan</button>
+			</div>';
+		} else {
+			$data['komen']=null;
+		}
+		
 		// Kalo ngga ada datanya dia bakal nampilin not found
 		if ($data['detail']==null) {
 			redirect('','refresh');
@@ -72,23 +87,23 @@ class Article extends CI_Controller {
 		$kategori = $this->uri->segment(2);
 		switch ($kategori) {
 			case 'General':
-				$a = 'General';
-				$data['b'] = 1;
-				break;
+			$a = 'General';
+			$data['b'] = 1;
+			break;
 			case 'Akademik':
-				$a = 'Akademik';
-				$data['b'] = 2;
-				break;
+			$a = 'Akademik';
+			$data['b'] = 2;
+			break;
 			case 'Review':
-				$a = 'Review';
-				$data['b'] = 3;
-				break;
+			$a = 'Review';
+			$data['b'] = 3;
+			break;
 			
 			
 			default:
-				redirect('article','refresh');
-				$a= 'wakwaw';
-				break;
+			redirect('article','refresh');
+			$a= 'wakwaw';
+			break;
 		}
 		$this->config->load('Custom_Halaman',TRUE);
 		$config = $this->config->item('Custom_Halaman');

@@ -10,15 +10,15 @@ class M_Article extends CI_Model {
 		// slug itu digunakan nanti urlnya contohnya jadi "blabla.com/judul-nya-jadi-begini"
 		// supaya ramah SEO
 		$text = $judul;
-	    $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
-	    $text = trim($text, '-');
-	    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-	    $text = strtolower($text);
-	    $text = preg_replace('~[^-\w]+~', '', $text);
-	    $text = $text."-".substr(md5(microtime()),rand(0,26),5);
+		$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+		$text = trim($text, '-');
+		$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+		$text = strtolower($text);
+		$text = preg_replace('~[^-\w]+~', '', $text);
+		$text = $text."-".substr(md5(microtime()),rand(0,26),5);
 	    //akhir dari fungsi slug
 
-	    $object = array(
+		$object = array(
 			'SLUG' => $text,
 			'JUDUL' => $judul,
 			'PENULIS' => $this->session->userdata('DataProfile')['ID'],
@@ -35,7 +35,7 @@ class M_Article extends CI_Model {
 	}
 	public function Read_Article_Single($slug,$username)
 	{
-		$query = $this->db->query("SELECT JUDUL, TANGGAL, CONTENT, USERNAME, DESKRIPSI, GAMBAR, NAMA, KATEGORI, SHAREABLE  FROM article_article JOIN mhs_kbmsi on PENULIS = ID where SLUG='$slug' AND USERNAME = '$username'");
+		$query = $this->db->query("SELECT ID_ARTICLE, JUDUL, TANGGAL, CONTENT, USERNAME, DESKRIPSI, GAMBAR, NAMA, KATEGORI, SHAREABLE  FROM article_article JOIN mhs_kbmsi on PENULIS = ID where SLUG='$slug' AND USERNAME = '$username'");
 		return $query->row();
 	}
 	public function Delete_Article($slug)
@@ -73,6 +73,38 @@ class M_Article extends CI_Model {
 		return $query->result();
 	}
 
+	public function GetCommentByArticle($slug)
+	{
+		// $this->db->select("*");
+		// $this->db->join("article_article", "article_comment.id_article = article_article.ID_ARTICLE");
+		// $this->db->join("mhs_kbmsi", "article_comment.id_kbmsi = mhs_kbmsi.id");
+		// $this->db->where("SLUG", $slug)
+		// return $this->db->get("article_comment");
+
+		$query = $this->db->query("
+			SELECT GAMBAR, NAMA, USERNAME, ID_COMMENT, COMMENT, DATE_COMMENT
+			FROM article_comment
+			JOIN mhs_kbmsi on ID_KBMSI = ID
+			JOIN article_article on ID_ARTICL = ID_ARTICLE
+			where SLUG = '$slug' ");
+		return $query->result();
+	}
+
+	public function InsertComment($articleid,$userid,$comment,$tgl)
+	{
+		$object = array(
+			'ID_ARTICL' => $articleid,
+			'ID_KBMSI' => $userid,
+			'COMMENT' => $comment,
+			'DATE_COMMENT' => $tgl
+		);
+		$this->db->insert('article_comment', $object);
+	}
+
+	public function DeleteComment($commentid){
+		$this->db->where('ID_COMMENT', $commentid);
+		$this->db->delete('article_comment');
+	}
 }
 
 /* End of file M_Article.php */
