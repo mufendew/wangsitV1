@@ -48,8 +48,12 @@ class Article extends CI_Controller {
 		$data['detail'] = $this->M_Article->Read_Article_Single($slug,$username);
 		
 		$data['recent'] = $this->M_Article->GetRecent();
+		if ($this->M_Article->GetCommentByArticle($slug)!==null) {
+			$data['detailcomment'] = $this->M_Article->GetCommentByArticle($slug);
+		}else{
+			$data['detailcomment']=null;
+		}
 		
-		$data['detailcomment'] = $this->M_Article->GetCommentByArticle($slug);
 
 		//kondisi kalo belom login, kalo ganti kode ini, yang di view juga di perhatikan, karena banyak variable session di VIEW nya
 		if (!isset($_SESSION['DataProfile'])) {
@@ -65,13 +69,9 @@ class Article extends CI_Controller {
 
 		// can komen if username exist
 		if (isset($_SESSION['DataProfile'])) {
-			$data['komen'] = '
-			<textarea name="komen-artikel" id="summernote"></textarea>
-			<div class="card">
-			<button name="tanggapi" class="btn wangsit-color" style="width: 100%;">Beri Tanggapan</button>
-			</div>';
+			$data['komen'] =true;
 		} else {
-			$data['komen']=null;
+			$data['komen'] =false;
 		}
 		
 		// Kalo ngga ada datanya dia bakal nampilin not found

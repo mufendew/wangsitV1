@@ -41,18 +41,28 @@ class My extends CI_Controller {
 	public function delete($slug)
 	{
 		$this->M_Article->Delete_Article($slug);
-		redirect('','refresh');
+		redirect('article','refresh');
 	}
 	public function edit($slug)
 	{
 		$detail = $this->M_Article->Read_Article_Single($slug, $_SESSION['DataProfile']['USERNAME']);
 		if ($detail==null) {
-			redirect('','refresh');
+			redirect('article','refresh');
 		}
 		else{
 			$data['slug'] = $slug;
 			$data['JUDUL'] =  $detail->JUDUL;
 			$data['DESC'] = $detail->DESKRIPSI;
+
+			if ($detail->KATEGORI == "General") {
+				$data['b'] = "General";
+			}elseif ($detail->KATEGORI == "Akademik") {
+				$data['b'] = "Akademik";
+			}elseif ($detail->KATEGORI == "Review") {
+				$data['b'] = "Review";
+			}else{
+				$data['b'] = null;
+			}
 
 			if($detail->SHAREABLE=="PRVT"){
 				$data['SHAREABLE'] =  'checked="checked"';

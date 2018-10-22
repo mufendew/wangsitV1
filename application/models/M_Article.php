@@ -41,8 +41,11 @@ class M_Article extends CI_Model {
 	public function Delete_Article($slug)
 	{
 		$user = $this->session->userdata('DataProfile')['ID'];
+		$query1 = "DELETE article_comment FROM article_article JOIN article_comment on ID_ARTICL = ID_ARTICLE WHERE PENULIS='$user' && SLUG='$slug'";
+		$this->db->query($query1);
 		$query = "DELETE FROM article_article WHERE PENULIS='$user' && SLUG='$slug'";
 		$this->db->query($query);
+
 	}
 	public function Edit_Article($slug ,$katagori, $opsi, $article, $desc)
 	{
@@ -86,7 +89,7 @@ class M_Article extends CI_Model {
 			FROM article_comment
 			JOIN mhs_kbmsi on ID_KBMSI = ID
 			JOIN article_article on ID_ARTICL = ID_ARTICLE
-			where SLUG = '$slug' ");
+			where SLUG = '$slug' ORDER BY DATE_COMMENT DESC");
 		return $query->result();
 	}
 
