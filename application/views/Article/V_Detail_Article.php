@@ -4,6 +4,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 	<title>Wangsit Article - <?php echo $detail->JUDUL;?></title>
+
 	<!-- WYSIWYG -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
 
@@ -70,6 +71,7 @@
 											</p>
 										<?php } ?>
 									</li>
+								<?php } ?>
 								<!--  -->
 								<li class="collection-item" style="padding: 0px">
 									<form action="<?php echo base_url()?>Article/My/insertComment/<?php echo $detail->USERNAME;?>/<?php echo $vslug; ?>" method="POST">
