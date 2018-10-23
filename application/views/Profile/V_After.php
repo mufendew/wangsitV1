@@ -76,32 +76,32 @@
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input placeholder="Masukan NIM anda" id="nim" type="number" class="validate" name="nimm" aria-required="true" required>
+                  <input placeholder="Masukan NIM anda" id="nim" type="text" class="validate" name="nimm" required="" aria-required="true" pattern="[0-9]{15}" title="Masukkan 15 digit NIM">
                   <label class="active" for="nim">NIM</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input placeholder="Masukkan Username anda" id="username" type="text" class="validate" name="usernamee" aria-required="true" required>
+                  <input placeholder="Masukkan Username anda" id="username" type="text" class="validate" name="usernamee" required="" aria-required="true" minlength="6">
                   <label class="active" for="username">Username</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input placeholder="Masukkan Password anda" id="password" type="password" class="validate" name="passwordd" required="" aria-required="true">
+                  <input placeholder="Masukkan Password anda" id="password" type="password" class="validate" name="passwordd" required="" aria-required="true" minlength="6" onkeyup="validatePassword()">
                   <label class="active" for="password">Password</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12" id="passconfirm">
                   <input placeholder="Masukkan ulang Password anda" id="passwordConfirm" type="password" name="" required="" aria-required="true" onkeyup="validatePassword()">
-                  <label class="active" id="lblPasswordConfirm" for="passwordConfirm" data-error="Password not match" data-success="Password Match">Ketik Ulang Password Anda</label>
+                  <label class="active" id="lblPasswordConfirm" for="passwordConfirm">Ketik Ulang Password Anda</label>
                   <span class="helper-text" id="passwordHelper"></span>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input placeholder="Masukan nomor HP anda" type="tel" name="nohp" class="validate" required="" aria-required="true" pattern="\d*">
+                  <input placeholder="Masukan nomor HP anda" type="tel" name="nohp" class="validate" required="" aria-required="true" pattern="\d*" minlength="11">
                   <label class="active" for="first_name">No Handphone</label>
                 </div>
               </div>
@@ -142,7 +142,18 @@
   <script src="<?php echo base_url();?>asset/js/init.js"></script>
   <script type="text/javascript">
 
-    //set Alphanumeric and _ Only
+    //set Numeric only
+    $('#nim').keypress(function (e) {
+      var regex = new RegExp("^[0-9]+$");
+      var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+      if (regex.test(str)) {
+        return true;
+      }
+      e.preventDefault();
+      return false;
+    });
+
+    //set Alphanumeric and _ only
     $('#username').keypress(function (e) {
       var regex = new RegExp("^[a-zA-Z0-9_]+$");
       var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
@@ -181,7 +192,18 @@
     //   var temp = uname.split(' ').join('');
     //   $("#username").val(temp);
     // }
-
+    
+    // function buttonAppear(){
+    //   var allinput = $('input').val();
+    //   var pass = $("#password").val();
+    //   var passconf = $("#passwordConfirm").val();
+    //   console.log("test")
+    //   if (allinput != '' && pass == passconf) {
+    //     $("#verifikasi").removeClass("disabled");
+    //   } else {
+    //     $("#verifikasi").addClass("disabled");
+    //   }
+    // }
 
     function validatePassword(){
       var pass = $("#password").val();
@@ -210,21 +232,21 @@
       yearRange : [1980,2005]
     });
 
-    // $("#password").on("focusout", function (e) {
-    //   if ($(this).val() != $("#passwordConfirm").val()) {
-    //     $("#passwordConfirm").removeClass("valid").addClass("invalid");
-    //   } else {
-    //     $("#passwordConfirm").removeClass("invalid").addClass("valid");
-    //   }
-    // });
+    $("#password").on("focusout", function (e) {
+      if ($(this).val() != $("#passwordConfirm").val()) {
+        $("#passwordConfirm").removeClass("valid").addClass("invalid");
+      } else {
+        $("#passwordConfirm").removeClass("invalid").addClass("valid");
+      }
+    });
 
-    // $("#passwordConfirm").on("keyup", function (e) {
-    //   if ($("#password").val() != $(this).val()) {
-    //     $(this).removeClass("valid").addClass("invalid");
-    //   } else {
-    //     $(this).removeClass("invalid").addClass("valid");
-    //   }
-    // });
+    $("#passwordConfirm").on("keyup", function (e) {
+      if ($("#password").val() != $(this).val()) {
+        $(this).removeClass("valid").addClass("invalid");
+      } else {
+        $(this).removeClass("invalid").addClass("valid");
+      }
+    });
     
   </script>
 </body>
