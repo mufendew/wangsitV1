@@ -32,8 +32,10 @@ class Googlee extends CI_Controller{
 				$this->session->set_userdata('DataProfile',$dataNIMM);
 				redirect('dashboard','refresh');
 			}
-			else
-				redirect('');
+			else {
+				echo "<script>alert('Username dan Password salah');window.location.href='login';</script>";
+				// redirect('login');
+			}
 		}
 
 		

@@ -114,7 +114,7 @@
               </div>
               <div id="modal1" class="modal">
                 <div class="modal-content center-align">
-                  <h5>Data yang dimasukkan tidak dapat diganti untuk saat ini, apakah anda sudah yakin dengan data yang anda isi ? <br>
+                  <h5>Data yang anda masukkan tidak dapat diganti, apakah anda sudah yakin dengan data yang anda isi?<br>
                   </h5>
                   <div class="row" style="margin-top: 20px;">
                     <div class="col s6">
@@ -127,7 +127,7 @@
                 </div>
               </div>
               <div class="row">
-                <a href="#modal1" class="modal-trigger"><button id="verifikasi" class="disabled col s12 btn btn-wangsit btn-large waves-effect wangsit-color">Validasi Akun</button></a>
+                <a href="#modal1" class="modal-trigger"><button id="verifikasi" class="disabled col s12 btn btn-wangsit btn-large waves-effect wangsit-color">Daftar</button></a>
               </div>
             </form>
           </div>
@@ -213,7 +213,7 @@
       if (uname != pass) {
         $("#usernameHelper").text("");
         if (pass == passconf) {
-          $("#passwordHelper").text("Password Match!");
+          $("#passwordHelper").text("Password match!");
           $("#passwordHelper").css("color", "#4caf50");
           $("#verifikasi").removeClass("disabled");
         } else {
