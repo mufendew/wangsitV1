@@ -82,7 +82,7 @@
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input placeholder="Masukkan Username anda" id="username" type="text" class="validate" name="usernamee" required="" aria-required="true" minlength="6">
+                  <input placeholder="Masukkan Username anda" id="username" type="text" class="validate" name="usernamee" required="" aria-required="true" minlength="6" onkeyup="validatePassword()">
                   <label class="active" for="username">Username</label>
                 </div>
               </div>
@@ -90,6 +90,7 @@
                 <div class="input-field col s12">
                   <input placeholder="Masukkan Password anda" id="password" type="password" class="validate" name="passwordd" required="" aria-required="true" minlength="6" onkeyup="validatePassword()">
                   <label class="active" for="password">Password</label>
+                  <span class="helper-text" id="usernameHelper"></span>
                 </div>
               </div>
               <div class="row">
@@ -101,7 +102,7 @@
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input placeholder="Masukan nomor HP anda" type="tel" name="nohp" class="validate" required="" aria-required="true" pattern="\d*" minlength="11">
+                  <input placeholder="Masukan nomor HP anda" type="tel" name="nohp" class="validate" required="" aria-required="true" pattern="\d*" minlength="11" maxlength="13">
                   <label class="active" for="first_name">No Handphone</label>
                 </div>
               </div>
@@ -206,15 +207,23 @@
     // }
 
     function validatePassword(){
+      var uname = $("#username").val();
       var pass = $("#password").val();
       var passconf = $("#passwordConfirm").val();
-      if (pass == passconf) {
-        $("#passwordHelper").text("Password Match!");
-        $("#passwordHelper").css("color", "#4caf50");
-        $("#verifikasi").removeClass("disabled");
+      if (uname != pass) {
+        $("#usernameHelper").text("");
+        if (pass == passconf) {
+          $("#passwordHelper").text("Password Match!");
+          $("#passwordHelper").css("color", "#4caf50");
+          $("#verifikasi").removeClass("disabled");
+        } else {
+          $("#passwordHelper").text("Password isn't match!");
+          $("#passwordHelper").css("color", "#f44336");
+          $("#verifikasi").addClass("disabled");
+        }
       } else {
-        $("#passwordHelper").text("Password Unmatch!");
-        $("#passwordHelper").css("color", "#f44336");
+        $("#usernameHelper").text("Username dengan Password tidak boleh sama!");
+        $("#usernameHelper").css("color", "#f44336");
         $("#verifikasi").addClass("disabled");
       }
     };
