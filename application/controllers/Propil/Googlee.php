@@ -25,8 +25,6 @@ class Googlee extends CI_Controller{
 			$b = $datum->USERNAME;
 			$c = $datum->PASSWORD;
 
-			
-
 			//if else ketika dia login pake username atau pake NIM
 			if ( ($_POST['NIM'] == $a || $_POST['NIM'] == $b) && md5($_POST['PASSWD']) == $c) {
 				$this->session->set_userdata('login',true);
@@ -75,33 +73,32 @@ class Googlee extends CI_Controller{
 
 			//proses insert ke DB jika dia pertama kali login atau daftar
 			if (isset($_POST['nimm'])) {
-			$dataa = array(
-				'PROVIDER' => "GGL",
-				'UID_PROVIDER' => $_POST['uidd'],
-				'NAMA' => $_POST['namaa'],
-				'EMAIL' => $_POST['emaill'],
-				'GAMBAR' => $_POST['gambarr'],
-				'NIM' => $_POST['nimm'],
-				'USERNAME' => strtolower($_POST['usernamee']),
-				'PASSWORD' => md5($_POST['passwordd']), 
-				'TTL' => $_POST['lahirr'], 
-				'HP' => $_POST['nohp'],
-				'STATUS' => 0,
-				'CREATED_DATE' => date("Y-m-d")  
-			);
+				$dataa = array(
+					'PROVIDER' => "GGL",
+					'UID_PROVIDER' => $_POST['uidd'],
+					'NAMA' => $_POST['namaa'],
+					'EMAIL' => $_POST['emaill'],
+					'GAMBAR' => $_POST['gambarr'],
+					'NIM' => $_POST['nimm'],
+					'USERNAME' => strtolower($_POST['usernamee']),
+					'PASSWORD' => md5($_POST['passwordd']), 
+					'TTL' => $_POST['lahirr'], 
+					'HP' => $_POST['nohp'],
+					'STATUS' => 0,
+					'CREATED_DATE' => date("Y-m-d")  
+				);
 
-			//ERROR HANDLING ketika username atau NIM udah ada di DB
-			if (!$this->db->insert('mhs_kbmsi', $dataa)){
-				if ($this->db->error()['code']==1062){
-					$data['errorr'] = "Username atau nim sudah terdaftar";
+				//ERROR HANDLING ketika username atau NIM udah ada di DB
+				if (!$this->db->insert('mhs_kbmsi', $dataa)){
+					if ($this->db->error()['code']==1062){
+						$data['errorr'] = "Username atau nim sudah terdaftar";
+					}
 				}
-			}
-			else{
-				$dataNIM = $this->M_Login->getNimDKK($_POST['uidd']);
-				$this->session->set_userdata('DataProfile',$dataNIM);
-				redirect('dashboard');
-			}
-			
+				else{
+					$dataNIM = $this->M_Login->getNimDKK($_POST['uidd']);
+					$this->session->set_userdata('DataProfile',$dataNIM);
+					redirect('dashboard');
+				}
 			}
 			$data['userdata'] = $this->session->userdata('DataGoogle');
 			$this->load->view('Profile/V_After',$data);
