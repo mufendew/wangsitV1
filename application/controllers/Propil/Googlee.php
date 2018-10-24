@@ -36,19 +36,11 @@ class Googlee extends CI_Controller{
 				$dataNIMM = $this->M_Login->getNimDKK($a);
 				$this->session->set_userdata('DataProfile',$dataNIMM);
 				redirect('dashboard','refresh');
-			}
-
-			else{
+			}else{
 				$data['errorr'] = "Username atau password salah";
 				redirect('login?errorr=Username+atau+password+salah');
-
-
-			//error handling jika username dan password tidak match, mengeluarkan alert dan redirect ke halaman login lagi
-			else {
-				echo "<script>alert('Username dan Password salah');window.location.href='login';</script>";
-				// redirect('login');
-
 			}
+
 		}
 
 		//bagian dari API google yakni harus dapet code dulu dari request URL di login form

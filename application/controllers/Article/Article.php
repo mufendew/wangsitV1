@@ -82,7 +82,7 @@ class Article extends CI_Controller {
 		}
 		// can edit if username sama
 		if ($_SESSION['DataProfile']['USERNAME']==$username) {
-			$data['edit'] = '<div class="card"><a href="'.base_url().'Article/My/edit/'.$slug.'" class="btn btn-large green" style="width: 100%;">Edit this Post</a></div>';
+			$data['edit'] = '<div class="card"><a href="'.base_url().'article/My/edit/'.$slug.'" class="btn btn-large green" style="width: 100%;">Edit this Post</a></div>';
 		}
 		else{
 			$data['edit']= null;
