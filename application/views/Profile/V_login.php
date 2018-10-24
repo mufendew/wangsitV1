@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  	<title>KBMSI AUTH</title>
+  	<title>WANGSIT AUTH</title>
 	<?php $this->load->view('Fragment/Styling'); ?> 
 	<link href="asset/css/materialize.min.css" rel="stylesheet" type="text/css"> 
 </head>
@@ -13,9 +13,10 @@
 	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 center-align" style="margin-bottom: 50px;">
+				<div class="col s12 center-align" style="margin-bottom: 20px;">
 					<h4 class="fontt" style="vertical-align: middle"><b><img class="center-align" src="asset/img/logooo.png" style="width: 200px; vertical-align: middle" alt=""></b></h4>
 				</div>
+<<<<<<< HEAD
 				
 				<?php if (isset($_GET['errorr'])) { ?>
 			      <div class="col s12" style="margin-top: 25px;">
@@ -26,14 +27,14 @@
 			      </div>
       			<?php } ?>
 				
+=======
+>>>>>>> radea
 				<div class="col m6 hide-on-small-and-down">
 					<img class="center-block" src="asset/img/ilustrasi.png" style="width: 100%;" alt="">
 					<h5 class="fontt"><b>Wangsit Auth</b></h5>
-					<p class="">Adalah sebuah sistem autentikasi mahasiswa sistem informasi universitas brawijaya, yang dapat digunakan oleh beberapa aplikasi-aplikasi lain yang ada di KBMSI</p>
+					<p class="">Adalah sebuah sistem autentikasi mahasiswa Sistem Informasi Universitas Brawijaya, yang dapat digunakan oleh beberapa aplikasi-aplikasi lain yang ada di KBMSI</p>
 				</div>
-				
 				<div class="col m1"></div>
-				
  				<div class="col s12 m5 white-text">
  					<div class="card z-depth-3">
 						<div class="card-content" style="height: 60px; background-color: #54264E;">
@@ -72,12 +73,11 @@
 								<div class="row">
 									<a href="<?php echo $loginURL;?>"><button class="col s12 btn btn-large waves-effect red">daftar / Masuk dengan Google</button></a>
 								</div>
-								<div class="row" style="padding-bottom: 0px;">
+								<!-- <div class="row" style="padding-bottom: 0px;">
 									<center>
 										<a class="grey-text" href="<?php echo $loginURL;?>">Belum punya akun ? Daftar</a>
 									</center>
-								</div>
-							
+								</div> -->
 						</div>
 					</div>
  				</div>

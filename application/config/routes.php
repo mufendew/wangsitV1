@@ -69,6 +69,7 @@ $route['login'] = 'Propil/Googlee';
 $route['dashboard'] = 'Propil/Profile';
 $route['profile/(:any)'] = 'Propil/Googlee';
 
+
 $route['wkwkwkwk'] = 'admin/Wakwaw';
 
 $route['article'] = 'Article/Article';
