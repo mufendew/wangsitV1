@@ -16,9 +16,6 @@
 				<div class="col s12 center-align" style="margin-bottom: 20px;">
 					<h4 class="fontt" style="vertical-align: middle"><b><img class="center-align" src="asset/img/logooo.png" style="width: 200px; vertical-align: middle" alt=""></b></h4>
 				</div>
-<<<<<<< HEAD
-				
-<<<<<<< HEAD
 				<?php if (isset($_GET['errorr'])) { ?>
 			      <div class="col s12" style="margin-top: 25px;">
 			        <div class="chip red white-text" style="width: 100%; border-radius: 5px;">
@@ -28,10 +25,6 @@
 			      </div>
       			<?php } ?>
 				
-=======
->>>>>>> radea
-=======
->>>>>>> parent of 47757f9... nambah buat admin
 				<div class="col m6 hide-on-small-and-down">
 					<img class="center-block" src="asset/img/ilustrasi.png" style="width: 100%;" alt="">
 					<h5 class="fontt"><b>Wangsit Auth</b></h5>

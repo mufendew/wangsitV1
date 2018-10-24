@@ -70,10 +70,9 @@ $route['dashboard'] = 'Propil/Profile';
 $route['profile/(:any)'] = 'Propil/Googlee';
 
 
-<<<<<<< HEAD
+
 $route['wkwkwkwk'] = 'admin/Wakwaw';
-=======
->>>>>>> parent of 47757f9... nambah buat admin
+
 
 $route['article'] = 'Article/Article';
 $route['article/(:num)'] = 'Article/Article';

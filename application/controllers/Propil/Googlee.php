@@ -119,11 +119,8 @@ class Googlee extends CI_Controller{
 				$this->session->set_userdata('DataProfile',$dataNIM);
 				redirect('dashboard');
 			}
-			
-
-			}
-			$data['userdata'] = $this->session->userdata('DataGoogle');
-			$this->load->view('Profile/V_After',$data);
+		$data['userdata'] = $this->session->userdata('DataGoogle');
+		$this->load->view('Profile/V_After',$data);
 		}
 		else redirect('');
 	}
