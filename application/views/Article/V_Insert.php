@@ -87,6 +87,11 @@
 				</div>
 			</form>
 			</div>
+			<div class="row white-text center-align grey-text">
+			<div class="col s12 grey-text">
+				Made with <b>&#x2764;	</b> by <a class="brown-text text-lighten-3" href="http://kbmsi.filkom.ub.ac.id/lembaga/emsi/p2s/">P2S EMSI 2018</a>	
+			</div>
+		</div>
 		</div>
 
 		

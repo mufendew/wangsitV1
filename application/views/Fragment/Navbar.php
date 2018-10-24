@@ -2,7 +2,7 @@
 
 <!-- Dropdown Test -->
   <ul id="dropdown2" class="dropdown-content">
-    <li><a href="<?php echo base_url();?>" class="wangsit-text"><b>Home</b></a></li>
+    <!-- <li><a href="<?php echo base_url();?>" class="wangsit-text"><b>Home</b></a></li> -->
     <li><a href="<?php echo base_url().$_SESSION['DataProfile']['USERNAME']; ?>" class="wangsit-text">Profil</a></li>
     <li class="divider" tabindex="-1"></li>
     <li><a href="<?php echo base_url().'profile/Me'; ?>" class="wangsit-text">Dashboard</a></li>

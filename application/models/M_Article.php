@@ -62,7 +62,7 @@ class M_Article extends CI_Model {
 	//offset dan jumlah untuk keperluan pagination
 	public function GetArticleAll($jumlah,$offset)
 	{
-		$query = $this->db->query("SELECT JUDUL, TANGGAL, USERNAME, DESKRIPSI, SLUG FROM article_article JOIN mhs_kbmsi on PENULIS = ID where SHAREABLE IS NULL ORDER BY ID_ARTICLE DESC LIMIT $jumlah OFFSET $offset ");
+		$query = $this->db->query("SELECT JUDUL, TANGGAL, NAMA, USERNAME, DESKRIPSI, SLUG FROM article_article JOIN mhs_kbmsi on PENULIS = ID where SHAREABLE IS NULL ORDER BY ID_ARTICLE DESC LIMIT $jumlah OFFSET $offset ");
 		return $query->result();
 	}
 	public function GetRecent()
