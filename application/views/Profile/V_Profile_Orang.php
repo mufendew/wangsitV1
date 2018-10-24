@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  	<title><?php echo $user->NAMA; ?> - Wangsit Profile</title>
+  	<title>Profile</title>
   	
   	<link rel="stylesheet" href="<?php echo base_url();?>asset/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>asset/css/owl.theme.default.css">
@@ -209,11 +209,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="row white-text center-align grey-text">
-				<div class="col s12 grey-text">
-					Made with <b>&#x2764;	</b> by <a class="brown-text text-lighten-3" href="http://kbmsi.filkom.ub.ac.id/lembaga/emsi/p2s/">P2S EMSI 2018</a>	
-				</div>
-			</div>
 	</div>
 </div>
 

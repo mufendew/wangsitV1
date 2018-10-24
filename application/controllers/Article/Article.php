@@ -7,7 +7,6 @@ class Article extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('M_Article');
-		$this->load->model('M_Kbmsi');
 		$this->load->library('pagination');
 	}
 	public function index()
@@ -38,25 +37,6 @@ class Article extends CI_Controller {
 
 		$data['b'] = 0;
 		$data['allArticle']= $this->M_Article->GetArticleAll($config['per_page'],$index);
-
-		if (isset($_SESSION['DataProfile'])) {
-			//notifikasi agar aktivasi
-			if ($this->M_Kbmsi->getStatus($_SESSION['DataProfile']['USERNAME'])==0) {
-				$data['belumAktivasi'] = '<div class="col s12" style="margin-top: 25px;">
-				<div class="chip red white-text" style="width: 100%; border-radius: 5px;">
-				Akun anda belum teraktivasi, silakan menguhubungi staff P2S untuk melakukan aktivasi 
-				</div>
-				</div>';
-				$data['belumAktivasibuttonDisable'] = 'disabled';
-			} else {
-				$data['belumAktivasi'] = null;
-				$data['belumAktivasibuttonDisable'] = null;
-			}
-		} else {
-			$data['belumAktivasi'] = null;
-			$data['belumAktivasibuttonDisable'] = null;
-		}
-
 		$this->load->view('Article/V_Index',$data);
 	}
 
@@ -103,7 +83,6 @@ class Article extends CI_Controller {
 			$this->load->view('Article/V_Detail_Article', $data, FALSE);
 		}				
 	}
-
 	public function kategori()
 	{
 		$kategori = $this->uri->segment(2);
@@ -143,25 +122,6 @@ class Article extends CI_Controller {
 		
 		//akhir setting pagination
 		$data['allArticle']= $this->M_Article->GetArticleKategori($config['per_page'],$index,$a);
-
-		if (isset($_SESSION['DataProfile'])) {
-			//notifikasi agar aktivasi
-			if ($this->M_Kbmsi->getStatus($_SESSION['DataProfile']['USERNAME'])==0) {
-				$data['belumAktivasi'] = '<div class="col s12" style="margin-top: 25px;">
-				<div class="chip red white-text" style="width: 100%; border-radius: 5px;">
-				Akun anda belum teraktivasi, silakan menguhubungi staff P2S untuk melakukan aktivasi 
-				</div>
-				</div>';
-				$data['belumAktivasibuttonDisable'] = 'disabled';
-			} else {
-				$data['belumAktivasi'] = null;
-				$data['belumAktivasibuttonDisable'] = null;
-			}
-		} else {
-			$data['belumAktivasi'] = null;
-			$data['belumAktivasibuttonDisable'] = null;
-		}
-
 		$this->load->view('Article/V_Index',$data);
 	}
 }

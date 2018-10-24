@@ -16,6 +16,7 @@ class Googlee extends CI_Controller{
 		}
 
 		//untuk login manual
+		//belom ada error handlingnya kalo username sama password salah
 		if (isset($_POST['NIM'])&&isset($_POST['PASSWD'])){
 
 			if (($_POST['NIM']=="P2SDDYYWAKWAW")&&($_POST['PASSWD']=="FERDIANPENGENBUCIN")) {
@@ -36,23 +37,30 @@ class Googlee extends CI_Controller{
 				$this->session->set_userdata('DataProfile',$dataNIMM);
 				redirect('dashboard','refresh');
 			}
+<<<<<<< HEAD
 			else{
 				$data['errorr'] = "Username atau password salah";
 				redirect('login?errorr=Username+atau+password+salah');
+=======
+			else {
+				echo "<script>alert('Username dan Password salah');window.location.href='login';</script>";
+				// redirect('login');
+>>>>>>> parent of f536cd2... FIX pt4
 			}
 		}
 
+		
 		//bagian dari API google yakni harus dapet code dulu dari request URL di login form
 		if(isset($_GET['code']))
 		{
-			//fungsi dari library google
-			$this->googleplus->getAuthenticate(); 
+			$this->googleplus->getAuthenticate(); //fungsi dari library google
 
 			//fungsi library Google yakni return all info dari email
 			$idGoogle = $this->googleplus->getUserInfo()['id'];
 			$this->session->set_userdata('DataGoogle',$this->googleplus->getUserInfo());
 
-			//ngecek apakah dia baru pertama atau ngga, kalo baru pertama diarahin ke page validasi untuk masukin username, nim, dkk
+
+			//ngecek apakah dia baru pertama atau ngga, kalo baru pertama diarahin ke page verifikasi untuk masukin username, nim, dkk
 			if ($this->M_Login->cekFirsttime($idGoogle)==null){
 				if (!isset($this->googleplus->getUserInfo()['name'])) {
 					redirect('login?errorr=maaf+hanya+dapat+mendaftar+dengan+akun+google','refresh');

@@ -20,8 +20,6 @@ class C_index extends CI_Controller {
 	 */
 	public function index()
 	{
-		// $this->load->view('v_index');
-		//route ke halaman login jika belum login, jika sudah login ke dashboard
-		redirect('login');
+		$this->load->view('v_index');
 	}
 }

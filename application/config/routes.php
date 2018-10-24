@@ -69,7 +69,11 @@ $route['login'] = 'Propil/Googlee';
 $route['dashboard'] = 'Propil/Profile';
 $route['profile/(:any)'] = 'Propil/Googlee';
 
+<<<<<<< HEAD
 $route['wkwkwkwk'] = 'admin/Wakwaw';
+=======
+
+>>>>>>> parent of f536cd2... FIX pt4
 
 $route['article'] = 'Article/Article';
 $route['article/(:num)'] = 'Article/Article';
