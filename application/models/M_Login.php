@@ -26,10 +26,10 @@ class M_Login extends CI_Model {
 		$query = $this->db->query("SELECT USERNAME, NIM, PASSWORD FROM mhs_kbmsi WHERE NIM = '$NIM' OR USERNAME= '$NIM'");
 		return $query->row();
 	}
-
-	public function EditAdmin($username)
+	
+	public function EditAdmin($id)
 		{
-			$query = $this->db->query("SELECT NAMA, GAMBAR, NIM, USERNAME FROM mhs_kbmsi WHERE USERNAME='$username'");
+			$query = $this->db->query("SELECT * FROM mhs_kbmsi WHERE ID='$id'");
 			return $query->row();
 		}
 	

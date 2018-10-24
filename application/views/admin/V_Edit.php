@@ -20,7 +20,7 @@
 
     <a href="#" class="brand-logo fontt"><img class="center-align" src="asset/img/logoo.png" style="width: 45px; " alt=""></a>
     <ul class="right hide-on-med-and-down" style="margin-right: -100px;">
-
+      <li><a href="<?php echo base_url();?>wkwkwkwk"><b>home</b></a></li>
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><b>admin</b><i class="material-icons right" style="margin-left: 10px;">arrow_drop_down</i></a></li>
     </ul>
     <div id="nav-mobile" class="right hide-on-med-and-down" style="margin-right: 30px">
@@ -39,54 +39,36 @@
           <div class="card-content" style="padding-top: 10px;">
 
             <h6 class="fontt center-align" style=" margin-bottom: 20px; margin-top: 20px; font-size: 18px;">
-              <b>Verifikasi Akun Anda</b>
+              <b>Edit Admin</b>
             </h6>
             <form id="fadho" action="" method="POST">
             <div class="row">
               <div class="input-field col s12">
-                <input value="<?php echo ucwords($userdata['name']); ?>" id="disabled" type="text" class="validate" disabled>
-                <label class="active" for="disabled">Nama</label>
+                <input value="<?php echo ucwords($orang->NAMA); ?>" id="disabled" type="text" class="validate" name="namaa" placeholder="">
+                <label class="active">Nama</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input disabled value="<?php echo $userdata['email']; ?>" id="disabled" type="text" class="validate" >
-                <label class="active" for="disabled">Email</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input placeholder="Masukan NIM anda" id="first_name" type="number" class="validate" name="nimm" required="" aria-required="true">
+                <input placeholder="Masukan NIM anda" value="<?php echo $orang->NIM; ?>" id="first_name" type="number" class="validate" name="nimm" required="" aria-required="true">
                 <label class="active" for="first_name">NIM</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Username" id="first_name" type="text" class="validate" name="usernamee" required="" aria-required="true">
+                <input placeholder="Username" id="first_name" value="<?php echo $orang->USERNAME; ?>" type="text" class="validate" name="usernamee" required="" aria-required="true">
                 <label class="active" for="first_name">Username</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Password Baru" id="password" type="password" class="validate" name="passwordd" required="" aria-required="true">
-                <label class="active" for="password">Password Baru</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input placeholder="Ketik Ulang Password Baru Anda" id="passwordConfirm" type="password" name="" required="" aria-required="true">
-                <label class="active" id="lblPasswordConfirm" for="passwordConfirm" data-error="Password not match" data-success="Password Match">Ketik Ulang Password Baru Anda</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input placeholder="Masukan Nomor hp anda" type="tel" name="nohp" class="validate" required="" aria-required="true">
+                <input placeholder="Masukan Nomor hp anda" type="tel" value="<?php echo $orang->HP; ?>" name="nohp" class="validate" required="" aria-required="true">
                 <label>No Hp</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="" id="first_name" type="text" class="active datepicker" name="lahirr" required="" aria-required="true">
+                <input placeholder="" id="first_name" type="text" class="active datepicker" value="<?php echo $orang->TTL; ?>" name="lahirr" required="" aria-required="true">
                 <label class="active" for="first_name">Tanggal Lahir</label>
               </div>
             </div>

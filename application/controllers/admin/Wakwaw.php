@@ -29,9 +29,21 @@ class Wakwaw extends CI_Controller {
 	}
 	public function edit($id)
 	{
+		if (isset($_POST['nimm'])) {
+			$dataa = array(
+				'NAMA' => $_POST['namaa'],
+				'NIM' => $_POST['nimm'],
+				'USERNAME' => strtolower($_POST['usernamee']),
+				'TTL' => $_POST['lahirr'], 
+				'HP' => $_POST['nohp']
+			);
+			$this->db->where('ID', $id);
+			$this->db->update('mhs_kbmsi', $dataa);	
+			redirect('wkwkwkwk','refresh');		
+		}
 		$this->load->model('M_Login');
-		$data['orang'] = 
-		$this->load->view('V_Edit', $data, FALSE);
+		$data['orang'] = $this->M_Login->EditAdmin($id);
+		$this->load->view('admin/V_Edit', $data);
 	}
 
 }

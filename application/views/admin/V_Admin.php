@@ -61,7 +61,7 @@
                        	<?php } else {?>
                        		<td><a href="?aktivasi=<?php echo $peserta->ID;?>" class="waves-effect waves-light red btn"><i class="material-icons">visibility</i></td>
                         <?php } ?>
-                        <td><a href="?wakwaw" class="waves-effect waves-light blue btn"><i class="material-icons">edit</i></td>
+                        <td><a href="<?php echo base_url();?>admin/Wakwaw/edit/<?php echo $peserta->ID;?>" class="waves-effect waves-light blue btn"><i class="material-icons">edit</i></td>
 					</tr>
 					<?php $i++; } ?>
 				  </tbody> 
