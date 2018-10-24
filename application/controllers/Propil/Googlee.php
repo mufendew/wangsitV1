@@ -101,8 +101,7 @@ class Googlee extends CI_Controller{
 				$data['userdata'] = $this->session->userdata('DataGoogle');
 				$this->load->view('Profile/V_After',$data);
 			}
-		}
-		else redirect('','refresh');
+		}else redirect('','refresh');
 	}
 	
 
