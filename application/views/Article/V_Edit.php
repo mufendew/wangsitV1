@@ -30,79 +30,82 @@
 										<label class="active" for="disabled">Judul</label>
 									</div>
 
-								<div class="input-field col s12">
-									<select name="katagori">
-									  <option value="Default" disabled >Choose your option</option>
-									  <option value="General" <?php echo ($b=="General" ? "selected" : ""); ?>>General</option>
-									  <option value="Review" <?php echo ($b=="Review" ? "selected" : ""); ?>>Review</option>
-									  <option value="Akademik" <?php echo ($b=="Akademik" ? "selected" : ""); ?>>Akademik</option>
-									</select>
-									<label>Katagori</label>
-							  	</div>
-							  	<div class="input-field col s12">
-					            	<textarea name="desc" placeholder="Deskripsi yang akan di tampilkan di list article" id="textarea2" class="materialize-textarea" data-length="255" value=""><?php echo $DESC;?></textarea>
-					            	<label for="textarea2">Description</label>
-					          	</div>
-							  	<div class="col s12">
-							  		<label>Sharing Option :</label>	
-							  	</div>
-							  	
-							  	<div class="input-field col s12">
-							  		  <div class="switch">
-									    <label>
-									      Public
-									      <input name="opsi" type="checkbox" value="PRVT" <?php echo $SHAREABLE;?>>
-									      <span class="lever"></span>
-									      Private
-									    </label>
-									  </div>
-							  	</div>
+									<div class="input-field col s12">
+										<select name="katagori">
+											<option value="Default" disabled >Choose your option</option>
+											<option value="General" <?php echo ($b=="General" ? "selected" : ""); ?>>General</option>
+											<option value="Review" <?php echo ($b=="Review" ? "selected" : ""); ?>>Review</option>
+											<option value="Akademik" <?php echo ($b=="Akademik" ? "selected" : ""); ?>>Akademik</option>
+										</select>
+										<label>Katagori</label>
+									</div>
+									<div class="input-field col s12">
+										<textarea name="desc" placeholder="Deskripsi yang akan di tampilkan di list article" id="textarea2" class="materialize-textarea" data-length="255" value=""><?php echo $DESC;?></textarea>
+										<label for="textarea2">Description</label>
+									</div>
+									<div class="col s12">
+										<label>Sharing Option :</label>	
+									</div>
+
+									<div class="input-field col s12">
+										<div class="switch">
+											<label>
+												Public
+												<input name="opsi" type="checkbox" value="PRVT" <?php echo $SHAREABLE;?>>
+												<span class="lever"></span>
+												Private
+											</label>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="card">
+						<div class="card">
 							<textarea name="artikel" id="summernote"></textarea>
-					</div>
-					
-					<div id="modal1" class="modal">
-						<div class="modal-content center-align">
-							<h5>Data yang sudah di insert tidak dapat di ganti untuk saat ini, Apakah anda sudah yakin dengan data yang anda isi ? <br>
-							</h5>
-							<div class="row" style="margin-top: 20px;">
-								<div class="col s6">
-									<a style="width: 100%" class=" btn btn-wangsit btn-large waves-effect red modal-close">Tidak</a>
-								</div>
-								<div class="col s6">
-									<button style="width: 100%" type="submit" name="btn_login" class=" btn btn-wangsit btn-large waves-effect green modal-close">Ya</button>
+						</div>
+
+						<div id="modal1" class="modal">
+							<div class="modal-content center-align">
+								<h5>Data yang sudah di insert tidak dapat di ganti untuk saat ini, Apakah anda sudah yakin dengan data yang anda isi ? <br>
+								</h5>
+								<div class="row" style="margin-top: 20px;">
+									<div class="col s6">
+										<a style="width: 100%" class=" btn btn-wangsit btn-large waves-effect red modal-close">Tidak</a>
+									</div>
+									<div class="col s6">
+										<button style="width: 100%" type="submit" name="btn_login" class=" btn btn-wangsit btn-large waves-effect green modal-close">Ya</button>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div id="modal2" class="modal">
-						<div class="modal-content center-align">
-							<h5>Apakah anda yakin akan menghapus Article berjudul <b><?php echo $JUDUL;?></b> ? <br>
-							</h5>
-							<div class="row" style="margin-top: 20px;">
-								<div class="col s6">
-									<a style="width: 100%" class=" btn btn-wangsit btn-large waves-effect red modal-close">Tidak</a>
-								</div>
-								<div class="col s6">
-									<a style="width: 100%" href="<?php echo base_url();?>Article/My/delete/<?php echo $slug; ?>" class=" btn btn-wangsit btn-large waves-effect green modal-close">Ya</a>
+						<div id="modal2" class="modal">
+							<div class="modal-content center-align">
+								<h5>Apakah anda yakin akan menghapus Article berjudul <b><?php echo $JUDUL;?></b> ? <br>
+								</h5>
+								<div class="row" style="margin-top: 20px;">
+									<div class="col s6">
+										<a style="width: 100%" class=" btn btn-wangsit btn-large waves-effect red modal-close">Tidak</a>
+									</div>
+									<div class="col s6">
+										<a style="width: 100%" href="<?php echo base_url();?>Article/My/delete/<?php echo $slug; ?>" class=" btn btn-wangsit btn-large waves-effect green modal-close">Ya</a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col s12 center-align" style="margin-top: 10px;">
-						<a href="#modal2" class="modal-trigger"><button class="btn btn-wangsit btn-large waves-effect red">Delete Post <i class="material-icons right">delete</i></button></a>
-						<a href="#modal1" class="modal-trigger"><button class="btn btn-wangsit btn-large waves-effect wangsit-color">UPDATE <i class="material-icons right">send</i></button></a>
+						<div class="col s12 center-align" style="margin-top: 10px;">
+							<a href="#modal2" class="modal-trigger"><button class="btn btn-wangsit btn-large waves-effect red">Delete Post <i class="material-icons right">delete</i></button></a>
+							<a href="#modal1" class="modal-trigger"><button class="btn btn-wangsit btn-large waves-effect wangsit-color">UPDATE <i class="material-icons right">send</i></button></a>
+						</div>
 					</div>
 				</form>
 			</div>
+			<div class="row white-text center-align grey-text">
+				<div class="col s12 grey-text">
+					Made with <b>&#x2764;	</b> by <a class="brown-text text-lighten-3" href="http://kbmsi.filkom.ub.ac.id/lembaga/emsi/p2s/">P2S EMSI 2018</a>	
+				</div>
+			</div>
 		</div>
-
-		
 	</div>
-
 	<!--  Scripts-->
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script>

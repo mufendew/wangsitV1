@@ -16,7 +16,6 @@ class Googlee extends CI_Controller{
 		}
 
 		//untuk login manual
-		//belom ada error handlingnya kalo username sama password salah
 		if (isset($_POST['NIM'])&&isset($_POST['PASSWD'])){
 
 			//ambil data dari ketika NIM di trigger
@@ -32,24 +31,25 @@ class Googlee extends CI_Controller{
 				$this->session->set_userdata('DataProfile',$dataNIMM);
 				redirect('dashboard','refresh');
 			}
+
+			//error handling jika username dan password tidak match, mengeluarkan alert dan redirect ke halaman login lagi
 			else {
 				echo "<script>alert('Username dan Password salah');window.location.href='login';</script>";
 				// redirect('login');
 			}
 		}
 
-		
 		//bagian dari API google yakni harus dapet code dulu dari request URL di login form
 		if(isset($_GET['code']))
 		{
-			$this->googleplus->getAuthenticate(); //fungsi dari library google
+			//fungsi dari library google
+			$this->googleplus->getAuthenticate(); 
 
 			//fungsi library Google yakni return all info dari email
 			$idGoogle = $this->googleplus->getUserInfo()['id'];
 			$this->session->set_userdata('DataGoogle',$this->googleplus->getUserInfo());
 
-
-			//ngecek apakah dia baru pertama atau ngga, kalo baru pertama diarahin ke page verifikasi untuk masukin username, nim, dkk
+			//ngecek apakah dia baru pertama atau ngga, kalo baru pertama diarahin ke page validasi untuk masukin username, nim, dkk
 			if ($this->M_Login->cekFirsttime($idGoogle)==null){
 				redirect('Propil/Googlee/Daftar');
 			}
