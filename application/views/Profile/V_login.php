@@ -16,6 +16,10 @@
 				<div class="col s12 center-align" style="margin-bottom: 20px;">
 					<h4 class="fontt" style="vertical-align: middle"><b><img class="center-align" src="asset/img/logooo.png" style="width: 200px; vertical-align: middle" alt=""></b></h4>
 				</div>
+<<<<<<< HEAD
+=======
+				
+>>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
 				<?php if (isset($_GET['errorr'])) { ?>
 			      <div class="col s12" style="margin-top: 25px;">
 			        <div class="chip red white-text" style="width: 100%; border-radius: 5px;">

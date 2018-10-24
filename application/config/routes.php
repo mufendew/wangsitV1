@@ -69,11 +69,16 @@ $route['login'] = 'Propil/Googlee';
 $route['dashboard'] = 'Propil/Profile';
 $route['profile/(:any)'] = 'Propil/Googlee';
 
+<<<<<<< HEAD
 
 
 $route['wkwkwkwk'] = 'admin/Wakwaw';
 
 
+=======
+$route['wkwkwkwk'] = 'admin/Wakwaw';
+
+>>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
 $route['article'] = 'Article/Article';
 $route['article/(:num)'] = 'Article/Article';
 $route['article/(:any)'] = 'Article/Article/Kategori/';

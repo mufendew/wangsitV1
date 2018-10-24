@@ -29,14 +29,22 @@ class Googlee extends CI_Controller{
 			$b = $datum->USERNAME;
 			$c = $datum->PASSWORD;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
 			//if else ketika dia login pake username atau pake NIM
 			if ( ($_POST['NIM'] == $a || $_POST['NIM'] == $b) && md5($_POST['PASSWD']) == $c) {
 				$this->session->set_userdata('login',true);
 				$dataNIMM = $this->M_Login->getNimDKK($a);
 				$this->session->set_userdata('DataProfile',$dataNIMM);
 				redirect('dashboard','refresh');
+<<<<<<< HEAD
 			}else{
+=======
+			}
+			else{
+>>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
 				$data['errorr'] = "Username atau password salah";
 				redirect('login?errorr=Username+atau+password+salah');
 			}
@@ -111,7 +119,10 @@ class Googlee extends CI_Controller{
 					$this->session->set_userdata('DataProfile',$dataNIM);
 					redirect('dashboard');
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
 			}
 			else{
 				$dataNIM = $this->M_Login->getNimDKK($_POST['uidd']);
@@ -119,8 +130,15 @@ class Googlee extends CI_Controller{
 				$this->session->set_userdata('DataProfile',$dataNIM);
 				redirect('dashboard');
 			}
+<<<<<<< HEAD
 		$data['userdata'] = $this->session->userdata('DataGoogle');
 		$this->load->view('Profile/V_After',$data);
+=======
+			
+			}
+			$data['userdata'] = $this->session->userdata('DataGoogle');
+			$this->load->view('Profile/V_After',$data);
+>>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
 		}
 		else redirect('');
 	}
