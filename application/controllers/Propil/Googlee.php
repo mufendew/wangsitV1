@@ -40,20 +40,35 @@ class Googlee extends CI_Controller{
 				$this->session->set_userdata('DataProfile',$dataNIMM);
 				redirect('dashboard','refresh');
 <<<<<<< HEAD
+<<<<<<< HEAD
 			}else{
 =======
 			}
 <<<<<<< HEAD
 			else{
 >>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
-				$data['errorr'] = "Username atau password salah";
-				redirect('login?errorr=Username+atau+password+salah');
+=======
 			}
 
+			else{
+>>>>>>> parent of d0a5aa7... Revert "nambah buat admin"
+				$data['errorr'] = "Username atau password salah";
+				redirect('login?errorr=Username+atau+password+salah');
+
+<<<<<<< HEAD
 =======
 			else
 				redirect('');
 >>>>>>> parent of 0215b22... Update application/controllers/Propil/Googlee.php
+=======
+
+			//error handling jika username dan password tidak match, mengeluarkan alert dan redirect ke halaman login lagi
+			else {
+				echo "<script>alert('Username dan Password salah');window.location.href='login';</script>";
+				// redirect('login');
+
+			}
+>>>>>>> parent of d0a5aa7... Revert "nambah buat admin"
 		}
 
 		//bagian dari API google yakni harus dapet code dulu dari request URL di login form
