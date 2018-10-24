@@ -24,51 +24,17 @@ class Googlee extends CI_Controller{
 			$b = $datum->USERNAME;
 			$c = $datum->PASSWORD;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
-=======
-			
-
->>>>>>> parent of 0215b22... Update application/controllers/Propil/Googlee.php
 			//if else ketika dia login pake username atau pake NIM
 			if ( ($_POST['NIM'] == $a || $_POST['NIM'] == $b) && md5($_POST['PASSWD']) == $c) {
 				$this->session->set_userdata('login',true);
 				$dataNIMM = $this->M_Login->getNimDKK($a);
 				$this->session->set_userdata('DataProfile',$dataNIMM);
 				redirect('dashboard','refresh');
-<<<<<<< HEAD
-<<<<<<< HEAD
 			}else{
-=======
-			}
-<<<<<<< HEAD
-			else{
->>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
-=======
-			}
-
-			else{
->>>>>>> parent of d0a5aa7... Revert "nambah buat admin"
 				$data['errorr'] = "Username atau password salah";
-				redirect('login?errorr=Username+atau+password+salah');
-
-<<<<<<< HEAD
-=======
-			else
-				redirect('');
->>>>>>> parent of 0215b22... Update application/controllers/Propil/Googlee.php
-=======
-
-			//error handling jika username dan password tidak match, mengeluarkan alert dan redirect ke halaman login lagi
-			else {
-				echo "<script>alert('Username dan Password salah');window.location.href='login';</script>";
-				// redirect('login');
-
+				redirect('login?errorr=Username+atau+password+salah');			
 			}
->>>>>>> parent of d0a5aa7... Revert "nambah buat admin"
 		}
 
 		//bagian dari API google yakni harus dapet code dulu dari request URL di login form
@@ -127,33 +93,16 @@ class Googlee extends CI_Controller{
 					if ($this->db->error()['code']==1062){
 						$data['errorr'] = "Username atau nim sudah terdaftar";
 					}
-				}
-				else{
+				}else{
 					$dataNIM = $this->M_Login->getNimDKK($_POST['uidd']);
 					$this->session->set_userdata('DataProfile',$dataNIM);
 					redirect('dashboard');
 				}
-<<<<<<< HEAD
-
-=======
->>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
+				$data['userdata'] = $this->session->userdata('DataGoogle');
+				$this->load->view('Profile/V_After',$data);
 			}
-			else{
-				$dataNIM = $this->M_Login->getNimDKK($_POST['uidd']);
-				$this->session->set_userdata('DataProfile',$dataNIM);
-				redirect('dashboard');
-			}
-<<<<<<< HEAD
-		$data['userdata'] = $this->session->userdata('DataGoogle');
-		$this->load->view('Profile/V_After',$data);
-=======
-			
-			}
-			$data['userdata'] = $this->session->userdata('DataGoogle');
-			$this->load->view('Profile/V_After',$data);
->>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
 		}
-		else redirect('');
+		else redirect('','refresh');
 	}
 	
 
