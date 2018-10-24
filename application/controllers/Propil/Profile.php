@@ -27,11 +27,12 @@ class Profile extends CI_Controller {
 				$data['belumAktivasi'] = '<div class="col s12" style="margin-top: 25px;">
 			        <div class="chip red white-text" style="width: 100%; border-radius: 5px;">
 			        	Akun anda belum teraktivasi, silakan menguhubungi staff P2S untuk melakukan aktivasi 
-			          <i class="close material-icons">close</i>
 			        </div>
 			    </div>';
+			    $data['belumAktivasibuttonDisable'] = 'disabled';
 			}else {
 				$data['belumAktivasi'] = null;
+				$data['belumAktivasibuttonDisable'] = null;
 			}
 			
 			$data['information'] = $arraay;
