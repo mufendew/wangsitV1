@@ -37,15 +37,9 @@ class Googlee extends CI_Controller{
 				$this->session->set_userdata('DataProfile',$dataNIMM);
 				redirect('dashboard','refresh');
 			}
-<<<<<<< HEAD
 			else{
 				$data['errorr'] = "Username atau password salah";
 				redirect('login?errorr=Username+atau+password+salah');
-=======
-			else {
-				echo "<script>alert('Username dan Password salah');window.location.href='login';</script>";
-				// redirect('login');
->>>>>>> parent of f536cd2... FIX pt4
 			}
 		}
 
